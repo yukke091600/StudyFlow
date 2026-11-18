@@ -1,0 +1,19 @@
+{
+  "name": "StudyFlow - 勉強管理",
+  "short_name": "StudyFlow",
+  "description": "毎日の勉強を管理するアプリ",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0d0f14",
+  "theme_color": "#0d0f14",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
