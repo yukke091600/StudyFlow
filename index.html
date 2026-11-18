@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -7,6 +7,7 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <title>StudyFlow</title>
+
 <link rel="manifest" href="./manifest.json">
 <meta name="theme-color" content="#0d0f14">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -44,1043 +45,1264 @@ button {
 
 .app {
     width: 100%;
-    max-width: 500px;
-    margin: auto;
-    min-height: 100vh;
-    padding: 18px 15px 90px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px 16px calc(100px + env(safe-area-inset-bottom));
 }
 
-/* Header */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 18px;
+    margin-bottom: 22px;
 }
 
 .logo {
-    font-size: 22px;
-    font-weight: 800;
+    font-size: 23px;
+    font-weight: 850;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #9b8cff;
 }
 
 .date {
-    color: #888;
-    font-size: 12px;
+    color: #9299a6;
+    font-size: 11px;
 }
 
-/* Cards */
-.card {
+.card,
+.stat {
     background: #171a21;
-    border: 1px solid #252a34;
+    border: 1px solid #292e38;
     border-radius: 18px;
-    padding: 18px;
-    margin-bottom: 12px;
+    padding: 17px;
+    margin-bottom: 13px;
 }
 
 .card-title {
     font-size: 13px;
-    color: #9ba1ad;
-    margin-bottom: 10px;
+    font-weight: 750;
+    margin-bottom: 13px;
 }
 
-/* Dashboard */
-.dashboard {
+.stats {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
+    margin-bottom: 13px;
 }
 
 .stat {
-    background: #171a21;
-    border: 1px solid #252a34;
-    border-radius: 16px;
-    padding: 16px;
-}
-
-.stat-number {
-    font-size: 27px;
-    font-weight: 800;
+    margin: 0;
 }
 
 .stat-label {
+    color: #9299a6;
     font-size: 11px;
-    color: #888;
-    margin-top: 4px;
+    margin-bottom: 7px;
 }
 
-/* Timer */
-.timer-card {
-    text-align: center;
-    padding: 25px 18px;
-}
-
-.mode {
-    color: #a5abb6;
-    font-size: 13px;
-    margin-bottom: 8px;
-}
-
-.timer {
-    font-size: 62px;
+.stat-value {
+    font-size: 22px;
     font-weight: 800;
-    letter-spacing: 2px;
-    margin: 4px 0 16px;
+}
+
+.stat-value small {
+    font-size: 11px;
+    color: #9299a6;
+}
+
+.timer-display {
+    font-size: clamp(48px, 15vw, 66px);
+    font-weight: 850;
+    text-align: center;
+    letter-spacing: -3px;
+    font-variant-numeric: tabular-nums;
+    margin: 16px 0;
+}
+
+.timer-mode {
+    text-align: center;
+    color: #a99cff;
+    font-size: 12px;
+    font-weight: 700;
 }
 
 .timer-buttons {
     display: flex;
-    gap: 8px;
-    justify-content: center;
+    gap: 10px;
 }
 
-.primary {
-    background: #ffffff;
+.primary-btn,
+.secondary-btn {
+    flex: 1;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 750;
+}
+
+.primary-btn {
+    background: #9b8cff;
     color: #111;
-    padding: 11px 25px;
-    border-radius: 12px;
-    font-weight: 700;
 }
 
-.secondary {
+.secondary-btn {
     background: #292e38;
-    color: white;
-    padding: 11px 20px;
-    border-radius: 12px;
+    color: #fff;
 }
 
-/* Subject */
-.subject-select {
+select,
+input {
     width: 100%;
-    background: #222630;
-    border: 1px solid #303642;
+    padding: 13px;
+    border: 1px solid #343b48;
+    border-radius: 10px;
+    background: #10131a;
     color: white;
-    padding: 12px;
-    border-radius: 11px;
     outline: none;
 }
 
-.subject-list {
-    margin-top: 14px;
-}
-
-.subject-row {
-    margin-bottom: 13px;
-}
-
-.subject-info {
+.task-form {
     display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    margin-bottom: 6px;
+    gap: 8px;
+    margin-bottom: 12px;
 }
 
-.bar {
-    height: 7px;
-    background: #292e37;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.bar-fill {
-    height: 100%;
-    background: #ffffff;
-    border-radius: 20px;
-}
-
-/* Tasks */
-.task-input {
-    display: flex;
-    gap: 7px;
-}
-
-.task-input input {
+.task-form input {
     flex: 1;
     min-width: 0;
-    background: #222630;
-    border: 1px solid #303642;
-    color: white;
-    padding: 11px;
-    border-radius: 10px;
-    outline: none;
 }
 
-.add-btn {
-    width: 45px;
+.task-form button {
+    padding: 0 17px;
     border-radius: 10px;
-    background: white;
+    background: #9b8cff;
     color: #111;
-    font-size: 20px;
+    font-weight: 750;
 }
 
-.tasks {
-    margin-top: 12px;
-}
-
-.task {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 9px 0;
-    border-bottom: 1px solid #242832;
-}
-
-.task:last-child {
-    border-bottom: none;
-}
-
-.task input {
-    width: 18px;
-    height: 18px;
-    accent-color: white;
-}
-
-.task.done span {
-    text-decoration: line-through;
-    color: #666;
-}
-
-.delete-task {
-    margin-left: auto;
-    color: #666;
-    background: transparent;
-    font-size: 16px;
-}
-
-/* Graph */
-.graph {
-    height: 150px;
-    display: flex;
-    align-items: end;
-    gap: 7px;
-    padding-top: 15px;
-}
-
-.graph-day {
-    flex: 1;
+.task-list {
     display: flex;
     flex-direction: column;
-    justify-content: end;
+    gap: 8px;
+}
+
+.task-item {
+    display: flex;
     align-items: center;
-    height: 100%;
-    gap: 5px;
+    gap: 9px;
+    padding: 11px;
+    background: #10131a;
+    border-radius: 10px;
 }
 
-.graph-bar {
-    width: 100%;
-    max-width: 28px;
-    background: white;
-    border-radius: 5px 5px 2px 2px;
-    min-height: 3px;
+.task-item span {
+    flex: 1;
+    font-size: 13px;
+    overflow-wrap: anywhere;
 }
 
-.graph-label {
-    font-size: 9px;
-    color: #777;
+.task-item.done span {
+    text-decoration: line-through;
+    color: #747b88;
 }
 
-/* Navigation */
+.task-item button {
+    background: transparent;
+    color: #9299a6;
+    font-size: 17px;
+    padding: 3px 6px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
 .nav {
     position: fixed;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: min(500px, 100%);
-    height: 65px;
-    background: rgba(18,20,26,.96);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid #252a34;
+    left: 0;
+    right: 0;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    gap: 0;
+    background: rgba(17, 19, 26, .96);
+    border-top: 1px solid #292e38;
+    padding: 9px 8px calc(9px + env(safe-area-inset-bottom));
+    z-index: 10;
+    backdrop-filter: blur(15px);
 }
 
 .nav button {
-    background: none;
-    color: #777;
-    font-size: 11px;
+    flex: 1;
+    max-width: 190px;
+    background: transparent;
+    color: #858c99;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 6px 3px;
 }
 
 .nav button.active {
-    color: white;
+    color: #b4a8ff;
 }
 
 .nav-icon {
     display: block;
     font-size: 20px;
-    margin-bottom: 2px;
+    margin-bottom: 3px;
 }
 
-/* Mobile */
-@media (max-width: 380px) {
-    .timer {
-        font-size: 52px;
-    }
+.subject-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    font-size: 12px;
+}
 
+.subject-bar {
+    height: 7px;
+    background: #2b303b;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 6px;
+}
+
+.subject-fill {
+    height: 100%;
+    background: #9b8cff;
+    border-radius: 20px;
+}
+
+.graph {
+    display: flex;
+    align-items: end;
+    justify-content: space-around;
+    gap: 8px;
+    height: 150px;
+    padding-top: 15px;
+}
+
+.graph-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    height: 100%;
+    gap: 7px;
+}
+
+.graph-bar-wrap {
+    height: 115px;
+    width: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+
+.graph-bar {
+    width: min(28px, 75%);
+    background: #9b8cff;
+    border-radius: 6px 6px 2px 2px;
+    min-height: 3px;
+}
+
+.graph-label {
+    color: #9299a6;
+    font-size: 10px;
+}
+
+.graph-value {
+    color: #9299a6;
+    font-size: 9px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-top: 12px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    background: #242933;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    color: #858c99;
+}
+
+.calendar-day.active {
+    background: #7161c9;
+    color: white;
+    font-weight: 800;
+}
+
+.calendar-day.today {
+    outline: 2px solid #b4a8ff;
+    outline-offset: 2px;
+}
+
+.empty {
+    color: #777f8c;
+    text-align: center;
+    font-size: 12px;
+    padding: 18px 0;
+}
+
+/* StudyFlow themes and shop */
+body.theme-ocean {
+    background: linear-gradient(160deg,#071a2d,#102d46 55%,#0d0f14);
+}
+
+body.theme-forest {
+    background: linear-gradient(160deg,#10251c,#193b2b 55%,#0d0f14);
+}
+
+body.theme-sakura {
+    background: linear-gradient(160deg,#321c2c,#4b293d 55%,#0d0f14);
+}
+
+body.theme-sunset {
+    background: linear-gradient(160deg,#321b12,#59301e 55%,#0d0f14);
+}
+
+body.theme-ocean .card,
+body.theme-ocean .stat {
+    background:#102638;
+    border-color:#21445c;
+}
+
+body.theme-forest .card,
+body.theme-forest .stat {
+    background:#172a20;
+    border-color:#2c4b38;
+}
+
+body.theme-sakura .card,
+body.theme-sakura .stat {
+    background:#2c202b;
+    border-color:#51384b;
+}
+
+body.theme-sunset .card,
+body.theme-sunset .stat {
+    background:#30221c;
+    border-color:#594033;
+}
+
+body.timer-neon .timer-display {
+    color:#65f5ff;
+    text-shadow:0 0 18px #28d9ff;
+}
+
+body.timer-gold .timer-display {
+    color:#f4d27c;
+    text-shadow:0 0 18px #c99b36;
+}
+
+.shop-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+}
+
+.shop-item {
+    background:#171a21;
+    border:1px solid #2a303b;
+    border-radius:15px;
+    padding:13px;
+    min-width:0;
+}
+
+.shop-preview {
+    height:55px;
+    border-radius:10px;
+    margin-bottom:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+    background:#252b36;
+}
+
+.shop-name {
+    font-size:13px;
+    font-weight:750;
+    margin-bottom:4px;
+}
+
+.shop-desc {
+    font-size:11px;
+    color:#9299a6;
+    min-height:30px;
+    line-height:1.45;
+}
+
+.shop-price {
+    font-size:12px;
+    color:#f2d27c;
+    margin:9px 0;
+    font-weight:700;
+}
+
+.shop-btn {
+    width:100%;
+    padding:9px 6px;
+    border-radius:9px;
+    background:#f4f4f4;
+    color:#111;
+    font-size:11px;
+    font-weight:750;
+}
+
+.shop-btn:disabled {
+    background:#343a45;
+    color:#aeb4bf;
+}
+
+.credit-pill {
+    background:#282b32;
+    border:1px solid #45404a;
+    color:#f2d27c;
+    border-radius:20px;
+    padding:7px 11px;
+    font-size:12px;
+    font-weight:800;
+    white-space:nowrap;
+}
+
+@media (max-width:360px) {
     .app {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left:12px;
+        padding-right:12px;
     }
 }
 </style>
 </head>
 
 <body>
-
 <div class="app">
 
     <header class="header">
-        <div class="logo">StudyFlow</div>
-        <div class="date" id="date"></div>
+        <div class="logo">Study<span>Flow</span></div>
+        <div style="display:flex;align-items:center;gap:8px">
+            <div class="credit-pill" id="creditBalance">✦ 0 スタクレ</div>
+            <div class="date" id="date"></div>
+        </div>
     </header>
 
-    <!-- Dashboard -->
-    <div class="dashboard">
-
-        <div class="stat">
-            <div class="stat-number" id="todayTime">0分</div>
-            <div class="stat-label">今日の勉強時間</div>
+    <!-- Home page: dashboard, timer and tasks -->
+    <section class="page active" id="page-home">
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-label">今日の勉強時間</div>
+                <div class="stat-value" id="todayTime">0<small>分</small></div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">累計勉強時間</div>
+                <div class="stat-value" id="totalTime">0<small>分</small></div>
+            </div>
         </div>
 
-        <div class="stat">
-            <div class="stat-number" id="totalTime">0時間</div>
-            <div class="stat-label">累計勉強時間</div>
+        <div class="card">
+            <div class="card-title">ポモドーロタイマー</div>
+            <div class="timer-mode" id="timerMode">FOCUS TIME</div>
+            <div class="timer-display" id="timer">25:00</div>
+            <div class="timer-buttons">
+                <button class="primary-btn" id="startBtn">スタート</button>
+                <button class="secondary-btn" id="resetBtn">リセット</button>
+            </div>
+            <div style="margin-top:14px">
+                <select id="subjectSelect">
+                    <option value="英語">英語</option>
+                    <option value="数学">数学</option>
+                    <option value="国語">国語</option>
+                    <option value="理科">理科</option>
+                    <option value="社会">社会</option>
+                    <option value="その他">その他</option>
+                </select>
+            </div>
+            <div style="font-size:11px;color:#8f96a3;margin-top:12px">
+                勉強10分ごとに10スタクレ獲得
+            </div>
         </div>
 
-    </div>
-
-    <!-- Timer -->
-    <section class="card timer-card">
-
-        <div class="mode" id="timerMode">
-            勉強時間
+        <div class="card">
+            <div class="card-title">今日のタスク</div>
+            <div class="task-form">
+                <input id="taskInput" placeholder="今日やることを入力">
+                <button id="addTask">追加</button>
+            </div>
+            <div class="task-list" id="tasks"></div>
         </div>
-
-        <div class="timer" id="timer">
-            25:00
-        </div>
-
-        <div class="timer-buttons">
-
-            <button class="primary" id="startBtn">
-                スタート
-            </button>
-
-            <button class="secondary" id="resetBtn">
-                リセット
-            </button>
-
-        </div>
-
     </section>
 
-    <!-- Subject -->
-    <section class="card">
-
-        <div class="card-title">
-            今勉強している教科
+    <!-- Record page -->
+    <section class="page" id="page-graph">
+        <div class="card">
+            <div class="card-title">学習カレンダー</div>
+            <div style="font-size:11px;color:#9299a6">
+                タイマーを開始した日にマークがつくで
+            </div>
+            <div class="calendar-grid" id="calendar"></div>
         </div>
 
-        <select class="subject-select" id="subjectSelect">
+        <div class="card">
+            <div class="card-title">直近7日間の勉強時間</div>
+            <div class="graph" id="graph"></div>
+        </div>
 
-            <option value="英語">英語</option>
-            <option value="数学">数学</option>
-            <option value="国語">国語</option>
-            <option value="理科">理科</option>
-            <option value="社会">社会</option>
-            <option value="その他">その他</option>
-
-        </select>
-
-        <div class="subject-list" id="subjectList"></div>
-
+        <div class="card">
+            <div class="card-title">教科別の勉強時間</div>
+            <div id="subjectList"></div>
+        </div>
     </section>
 
-    <!-- Tasks -->
-    <section class="card">
-
-        <div class="card-title">
-            今日のタスク
+    <!-- Shop page -->
+    <section class="page" id="page-shop">
+        <div class="card">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:8px">
+                <div>
+                    <div class="card-title" style="margin-bottom:4px">StudyFlow SHOP</div>
+                    <div style="font-size:18px;font-weight:800">自分好みにカスタマイズ</div>
+                </div>
+                <div class="credit-pill" id="shopBalance">✦ 0</div>
+            </div>
+            <p style="font-size:11px;color:#9299a6;margin-top:9px">
+                勉強して貯めたスタクレでアイテムを購入。購入後はいつでも切り替えられるで。
+            </p>
         </div>
 
-        <div class="task-input">
+        <div class="card">
+            <div class="card-title" style="margin-bottom:10px">テーマ・背景</div>
+            <div class="shop-grid" id="themeShop"></div>
 
-            <input
-                id="taskInput"
-                type="text"
-                placeholder="例：数学ワーク20ページ"
-            >
-
-            <button
-                class="add-btn"
-                id="addTask"
-            >
-                +
-            </button>
-
+            <div class="card-title" style="margin:18px 2px 10px">
+                タイマー・アクセント
+            </div>
+            <div class="shop-grid" id="effectShop"></div>
         </div>
-
-        <div class="tasks" id="tasks"></div>
-
-    </section>
-
-    <!-- Graph -->
-    <section class="card">
-
-        <div class="card-title">
-            過去7日間の勉強時間
-        </div>
-
-        <div class="graph" id="graph"></div>
-
     </section>
 
 </div>
 
-
-<!-- Bottom Navigation -->
 <nav class="nav">
-
-    <button class="active">
-        <span class="nav-icon">⌂</span>
-        ホーム
+    <button class="active" data-page="home" aria-current="page">
+        <span class="nav-icon">⌂</span>ホーム
     </button>
-
-    <button>
-        <span class="nav-icon">◷</span>
-        タイマー
+    <button data-page="graph">
+        <span class="nav-icon">▦</span>記録
     </button>
-
-    <button>
-        <span class="nav-icon">✓</span>
-        タスク
+    <button data-page="shop">
+        <span class="nav-icon">✦</span>ショップ
     </button>
-
-    <button>
-        <span class="nav-icon">▥</span>
-        記録
-    </button>
-
 </nav>
 
-
 <script>
+"use strict";
 
-/* =========================
+/* --------------------------------
    DATA
-========================= */
+-------------------------------- */
 
-const subjects = [
-    "英語",
-    "数学",
-    "国語",
-    "理科",
-    "社会",
-    "その他"
-];
+const STORAGE_KEY = "studyFlow";
 
-let data = JSON.parse(
-    localStorage.getItem("studyFlow")
-) || {
-
-    totalSeconds: 0,
-
-    subjectSeconds: {
-        英語: 0,
-        数学: 0,
-        国語: 0,
-        理科: 0,
-        社会: 0,
-        その他: 0
-    },
-
-    daily: {},
-
-    tasks: []
-
+const todayKey = () => {
+    const d = new Date();
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
 };
 
+const defaultData = {
+    daily: {},
+    subjects: {},
+    tasks: [],
+    credits: 0,
+    creditRemainderSeconds: 0,
+    activeDays: [],
+    ownedItems: ["theme-night"],
+    equippedTheme: "theme-night",
+    equippedEffect: "effect-normal"
+};
 
-/* =========================
-   SAVE
-========================= */
+let data;
+
+try {
+    const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    data = saved && typeof saved === "object"
+        ? { ...defaultData, ...saved }
+        : { ...defaultData };
+} catch (error) {
+    data = { ...defaultData };
+}
+
+data.daily = data.daily || {};
+data.subjects = data.subjects || {};
+data.tasks = Array.isArray(data.tasks) ? data.tasks : [];
+data.credits = data.credits || 0;
+data.creditRemainderSeconds = data.creditRemainderSeconds || 0;
+data.activeDays = Array.isArray(data.activeDays) ? data.activeDays : [];
+data.ownedItems = Array.isArray(data.ownedItems)
+    ? data.ownedItems
+    : ["theme-night"];
+data.equippedTheme = data.equippedTheme || "theme-night";
+data.equippedEffect = data.equippedEffect || "effect-normal";
 
 function save() {
-
-    localStorage.setItem(
-        "studyFlow",
-        JSON.stringify(data)
-    );
-
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
-
-/* =========================
-   DATE
-========================= */
-
-function getDateKey(date = new Date()) {
-
-    return date.toISOString().slice(0,10);
-
-}
-
-function formatDate(date = new Date()) {
-
-    return `${date.getMonth()+1}/${date.getDate()}`;
-
-}
+/* --------------------------------
+   DATE / DISPLAY
+-------------------------------- */
 
 document.getElementById("date").textContent =
-    `${new Date().getMonth()+1}月${new Date().getDate()}日`;
+    new Date().toLocaleDateString("ja-JP", {
+        month: "numeric",
+        day: "numeric",
+        weekday: "short"
+    });
 
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const hours = Math.floor(minutes / 60);
+    const remain = minutes % 60;
 
-/* =========================
-   TIMER
-========================= */
-
-let timerSeconds = 25 * 60;
-
-let timerRunning = false;
-
-let timerInterval = null;
-
-let workMode = true;
-
-
-function updateTimer() {
-
-    const min =
-        Math.floor(timerSeconds / 60)
-        .toString()
-        .padStart(2,"0");
-
-    const sec =
-        (timerSeconds % 60)
-        .toString()
-        .padStart(2,"0");
-
-    document.getElementById("timer").textContent =
-        `${min}:${sec}`;
-
+    if (hours > 0) {
+        return `${hours}時間${remain}分`;
+    }
+    return `${remain}分`;
 }
 
+function getTodaySeconds() {
+    return data.daily[todayKey()] || 0;
+}
+
+function getTotalSeconds() {
+    return Object.values(data.daily)
+        .reduce((sum, value) => sum + (Number(value) || 0), 0);
+}
+
+/* --------------------------------
+   TIMER
+-------------------------------- */
+
+const FOCUS_SECONDS = 25 * 60;
+const BREAK_SECONDS = 5 * 60;
+
+let timerSeconds = FOCUS_SECONDS;
+let timerRunning = false;
+let timerInterval = null;
+let isBreak = false;
+let lastTick = null;
+
+const timerElement = document.getElementById("timer");
+const startButton = document.getElementById("startBtn");
+const resetButton = document.getElementById("resetBtn");
+
+function renderTimer() {
+    const minutes = Math.floor(timerSeconds / 60);
+    const seconds = timerSeconds % 60;
+
+    timerElement.textContent =
+        `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+
+    document.getElementById("timerMode").textContent =
+        isBreak ? "BREAK TIME" : "FOCUS TIME";
+
+    startButton.textContent = timerRunning ? "一時停止" : "スタート";
+}
+
+function markActiveDay() {
+    const key = todayKey();
+
+    if (!data.activeDays.includes(key)) {
+        data.activeDays.push(key);
+    }
+
+    save();
+    renderCalendar();
+}
+
+function earnCredits(seconds) {
+    if (isBreak || seconds <= 0) return;
+
+    data.creditRemainderSeconds += seconds;
+
+    if (data.creditRemainderSeconds >= 600) {
+        const earned = Math.floor(data.creditRemainderSeconds / 600) * 10;
+        data.credits += earned;
+        data.creditRemainderSeconds %= 600;
+    }
+}
+
+function addStudySeconds(seconds) {
+    if (seconds <= 0 || isBreak) return;
+
+    const key = todayKey();
+    const subject = document.getElementById("subjectSelect").value;
+
+    data.daily[key] = (data.daily[key] || 0) + seconds;
+    data.subjects[subject] = (data.subjects[subject] || 0) + seconds;
+
+    earnCredits(seconds);
+    save();
+    renderDashboard();
+}
+
+function tick() {
+    const now = Date.now();
+    const elapsed = Math.max(0, Math.floor((now - lastTick) / 1000));
+    lastTick = now;
+
+    if (elapsed <= 0) return;
+
+    if (!isBreak) {
+        addStudySeconds(elapsed);
+    }
+
+    timerSeconds = Math.max(0, timerSeconds - elapsed);
+
+    if (timerSeconds <= 0) {
+        timerRunning = false;
+        clearInterval(timerInterval);
+        timerInterval = null;
+
+        if (isBreak) {
+            isBreak = false;
+            timerSeconds = FOCUS_SECONDS;
+        } else {
+            isBreak = true;
+            timerSeconds = BREAK_SECONDS;
+        }
+
+        alert(isBreak ? "お疲れさま！5分休憩しよう。" : "休憩終了！次の勉強を始めよう。");
+    }
+
+    renderTimer();
+    renderDashboard();
+}
 
 function startTimer() {
-
     if (timerRunning) {
-
-        clearInterval(timerInterval);
-
         timerRunning = false;
-
-        document.getElementById("startBtn").textContent =
-            "スタート";
-
+        clearInterval(timerInterval);
+        timerInterval = null;
+        lastTick = null;
+        renderTimer();
         return;
-
     }
 
     timerRunning = true;
 
-    document.getElementById("startBtn").textContent =
-        "一時停止";
-
-    timerInterval = setInterval(() => {
-
-        timerSeconds--;
-
-        updateTimer();
-
-        if (workMode) {
-
-            addStudySecond();
-
-        }
-
-        if (timerSeconds <= 0) {
-
-            clearInterval(timerInterval);
-
-            timerRunning = false;
-
-            document.getElementById("startBtn").textContent =
-                "スタート";
-
-            if (workMode) {
-
-                workMode = false;
-
-                timerSeconds = 5 * 60;
-
-                document.getElementById("timerMode").textContent =
-                    "休憩時間";
-
-            } else {
-
-                workMode = true;
-
-                timerSeconds = 25 * 60;
-
-                document.getElementById("timerMode").textContent =
-                    "勉強時間";
-
-            }
-
-            updateTimer();
-
-        }
-
-    },1000);
-
-}
-
-
-function resetTimer() {
-
-    clearInterval(timerInterval);
-
-    timerRunning = false;
-
-    workMode = true;
-
-    timerSeconds = 25 * 60;
-
-    document.getElementById("startBtn").textContent =
-        "スタート";
-
-    document.getElementById("timerMode").textContent =
-        "勉強時間";
-
-    updateTimer();
-
-}
-
-
-function addStudySecond() {
-
-    const subject =
-        document.getElementById("subjectSelect").value;
-
-    const today =
-        getDateKey();
-
-    data.totalSeconds++;
-
-    data.subjectSeconds[subject]++;
-
-    if (!data.daily[today]) {
-
-        data.daily[today] = 0;
-
+    if (!isBreak) {
+        markActiveDay();
     }
 
-    data.daily[today]++;
+    lastTick = Date.now();
+    timerInterval = setInterval(tick, 1000);
 
-    save();
-
-    render();
-
+    renderTimer();
 }
 
+function resetTimer() {
+    timerRunning = false;
+    clearInterval(timerInterval);
+    timerInterval = null;
+    lastTick = null;
+    isBreak = false;
+    timerSeconds = FOCUS_SECONDS;
 
-/* =========================
-   MANUAL SUBJECT TIME
-========================= */
+    renderTimer();
+}
 
-document
-    .getElementById("subjectSelect")
-    .addEventListener("change", render);
+startButton.addEventListener("click", startTimer);
+resetButton.addEventListener("click", resetTimer);
 
-
-/* =========================
+/* --------------------------------
    TASKS
-========================= */
+-------------------------------- */
 
-function addTask() {
+function renderTasks() {
+    const container = document.getElementById("tasks");
+    container.innerHTML = "";
 
-    const input =
-        document.getElementById("taskInput");
+    if (data.tasks.length === 0) {
+        container.innerHTML =
+            '<div class="empty">タスクはまだありません</div>';
+        return;
+    }
 
-    const text =
-        input.value.trim();
+    data.tasks.forEach(task => {
+        const item = document.createElement("div");
+        item.className = "task-item" + (task.done ? " done" : "");
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.checked = !!task.done;
+        checkbox.style.width = "18px";
+        checkbox.style.height = "18px";
+
+        checkbox.addEventListener("change", () => {
+            task.done = checkbox.checked;
+            save();
+            renderTasks();
+        });
+
+        const label = document.createElement("span");
+        label.textContent = task.text;
+
+        const remove = document.createElement("button");
+        remove.textContent = "×";
+        remove.setAttribute("aria-label", "削除");
+
+        remove.addEventListener("click", () => {
+            data.tasks = data.tasks.filter(x => x.id !== task.id);
+            save();
+            renderTasks();
+        });
+
+        item.append(checkbox, label, remove);
+        container.appendChild(item);
+    });
+}
+
+document.getElementById("addTask").addEventListener("click", () => {
+    const input = document.getElementById("taskInput");
+    const text = input.value.trim();
 
     if (!text) return;
 
     data.tasks.push({
-
-        id: Date.now(),
-
-        text: text,
-
-        done: false,
-
-        date: getDateKey()
-
+        id: Date.now() + Math.random(),
+        text,
+        done: false
     });
 
     input.value = "";
-
     save();
-
     renderTasks();
+});
 
-}
-
-
-function toggleTask(id) {
-
-    const task =
-        data.tasks.find(t => t.id === id);
-
-    if (!task) return;
-
-    task.done = !task.done;
-
-    save();
-
-    renderTasks();
-
-}
-
-
-function deleteTask(id) {
-
-    data.tasks =
-        data.tasks.filter(t => t.id !== id);
-
-    save();
-
-    renderTasks();
-
-}
-
-
-function renderTasks() {
-
-    const container =
-        document.getElementById("tasks");
-
-    container.innerHTML = "";
-
-    const today =
-        getDateKey();
-
-    const todayTasks =
-        data.tasks.filter(t => t.date === today);
-
-    if (todayTasks.length === 0) {
-
-        container.innerHTML =
-            `<div style="color:#666;font-size:12px;padding:10px 0">
-                タスクはまだありません
-             </div>`;
-
-        return;
-
+document.getElementById("taskInput").addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+        document.getElementById("addTask").click();
     }
+});
 
-    todayTasks.forEach(task => {
-
-        const div =
-            document.createElement("div");
-
-        div.className =
-            `task ${task.done ? "done" : ""}`;
-
-        div.innerHTML = `
-
-            <input
-                type="checkbox"
-                ${task.done ? "checked" : ""}
-                onchange="toggleTask(${task.id})"
-            >
-
-            <span>${escapeHtml(task.text)}</span>
-
-            <button
-                class="delete-task"
-                onclick="deleteTask(${task.id})"
-            >
-                ×
-            </button>
-
-        `;
-
-        container.appendChild(div);
-
-    });
-
-}
-
-
-function escapeHtml(text) {
-
-    return text
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-
-}
-
-
-/* =========================
-   SUBJECT DISPLAY
-========================= */
-
-function formatMinutes(seconds) {
-
-    return Math.floor(seconds / 60);
-
-}
-
-
-function renderSubjects() {
-
-    const container =
-        document.getElementById("subjectList");
-
-    container.innerHTML = "";
-
-    const max =
-        Math.max(
-            ...Object.values(data.subjectSeconds),
-            1
-        );
-
-    subjects.forEach(subject => {
-
-        const seconds =
-            data.subjectSeconds[subject] || 0;
-
-        const percent =
-            (seconds / max) * 100;
-
-        const div =
-            document.createElement("div");
-
-        div.className =
-            "subject-row";
-
-        div.innerHTML = `
-
-            <div class="subject-info">
-
-                <span>${subject}</span>
-
-                <span>
-                    ${formatMinutes(seconds)}分
-                </span>
-
-            </div>
-
-            <div class="bar">
-
-                <div
-                    class="bar-fill"
-                    style="width:${percent}%"
-                ></div>
-
-            </div>
-
-        `;
-
-        container.appendChild(div);
-
-    });
-
-}
-
-
-/* =========================
-   GRAPH
-========================= */
-
-function renderGraph() {
-
-    const container =
-        document.getElementById("graph");
-
-    container.innerHTML = "";
-
-    const today =
-        new Date();
-
-    const values = [];
-
-    for (let i = 6; i >= 0; i--) {
-
-        const date =
-            new Date(today);
-
-        date.setDate(
-            today.getDate() - i
-        );
-
-        const key =
-            getDateKey(date);
-
-        values.push({
-
-            key: key,
-
-            value: data.daily[key] || 0,
-
-            label:
-                `${date.getMonth()+1}/${date.getDate()}`
-
-        });
-
-    }
-
-    const max =
-        Math.max(
-            ...values.map(v => v.value),
-            60
-        );
-
-    values.forEach(day => {
-
-        const wrapper =
-            document.createElement("div");
-
-        wrapper.className =
-            "graph-day";
-
-        const height =
-            Math.max(
-                3,
-                (day.value / max) * 100
-            );
-
-        wrapper.innerHTML = `
-
-            <div
-                class="graph-bar"
-                style="height:${height}%"
-                title="${formatMinutes(day.value)}分"
-            ></div>
-
-            <div class="graph-label">
-                ${day.label}
-            </div>
-
-        `;
-
-        container.appendChild(wrapper);
-
-    });
-
-}
-
-
-/* =========================
+/* --------------------------------
    DASHBOARD
-========================= */
+-------------------------------- */
 
 function renderDashboard() {
+    document.getElementById("todayTime").innerHTML =
+        `${Math.floor(getTodaySeconds() / 60)}<small>分</small>`;
 
-    const today =
-        data.daily[getDateKey()] || 0;
+    document.getElementById("totalTime").innerHTML =
+        `${Math.floor(getTotalSeconds() / 60)}<small>分</small>`;
 
-    document.getElementById("todayTime")
-        .textContent =
-        `${formatMinutes(today)}分`;
+    document.getElementById("creditBalance").textContent =
+        `✦ ${data.credits} スタクレ`;
 
-    const totalMinutes =
-        Math.floor(data.totalSeconds / 60);
+    const shopBalance = document.getElementById("shopBalance");
 
-    const hours =
-        Math.floor(totalMinutes / 60);
-
-    const minutes =
-        totalMinutes % 60;
-
-    document.getElementById("totalTime")
-        .textContent =
-        hours > 0
-            ? `${hours}時間${minutes}分`
-            : `${minutes}分`;
-
+    if (shopBalance) {
+        shopBalance.textContent = `✦ ${data.credits}`;
+    }
 }
 
+/* --------------------------------
+   RECORD: CALENDAR
+-------------------------------- */
 
-/* =========================
-   RENDER
-========================= */
+function renderCalendar() {
+    const calendar = document.getElementById("calendar");
+    if (!calendar) return;
 
-function render() {
+    calendar.innerHTML = "";
 
-    renderDashboard();
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-    renderSubjects();
+    const weekdays = ["日", "月", "火", "水", "木", "金", "土"];
 
-    renderTasks();
+    weekdays.forEach(day => {
+        const label = document.createElement("div");
+        label.textContent = day;
+        label.style.textAlign = "center";
+        label.style.color = "#9299a6";
+        label.style.fontSize = "10px";
+        calendar.appendChild(label);
+    });
 
-    renderGraph();
+    for (let i = 0; i < firstDay; i++) {
+        const blank = document.createElement("div");
+        calendar.appendChild(blank);
+    }
 
+    for (let day = 1; day <= daysInMonth; day++) {
+        const key =
+            `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+
+        const cell = document.createElement("div");
+        cell.className = "calendar-day";
+
+        if (data.activeDays.includes(key)) {
+            cell.classList.add("active");
+        }
+
+        if (key === todayKey()) {
+            cell.classList.add("today");
+        }
+
+        cell.textContent = day;
+        calendar.appendChild(cell);
+    }
 }
 
+/* --------------------------------
+   RECORD: GRAPH
+-------------------------------- */
 
-/* =========================
-   EVENTS
-========================= */
+function renderGraph() {
+    const graph = document.getElementById("graph");
+    graph.innerHTML = "";
 
-document
-    .getElementById("startBtn")
-    .addEventListener(
-        "click",
-        startTimer
+    const days = [];
+
+    for (let i = 6; i >= 0; i--) {
+        const d = new Date();
+        d.setDate(d.getDate() - i);
+
+        const key =
+            `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+
+        days.push({
+            key,
+            label: `${d.getMonth() + 1}/${d.getDate()}`,
+            seconds: data.daily[key] || 0
+        });
+    }
+
+    const max = Math.max(...days.map(day => day.seconds), 60);
+
+    days.forEach(day => {
+        const column = document.createElement("div");
+        column.className = "graph-column";
+
+        const value = document.createElement("div");
+        value.className = "graph-value";
+        value.textContent = Math.floor(day.seconds / 60) + "分";
+
+        const wrap = document.createElement("div");
+        wrap.className = "graph-bar-wrap";
+
+        const bar = document.createElement("div");
+        bar.className = "graph-bar";
+        bar.style.height =
+            `${Math.max(3, (day.seconds / max) * 100)}%`;
+
+        const label = document.createElement("div");
+        label.className = "graph-label";
+        label.textContent = day.label;
+
+        wrap.appendChild(bar);
+        column.append(value, wrap, label);
+        graph.appendChild(column);
+    });
+}
+
+/* --------------------------------
+   RECORD: SUBJECTS
+-------------------------------- */
+
+function renderSubjects() {
+    const container = document.getElementById("subjectList");
+    container.innerHTML = "";
+
+    const entries = Object.entries(data.subjects)
+        .filter(([, seconds]) => seconds > 0)
+        .sort((a, b) => b[1] - a[1]);
+
+    if (entries.length === 0) {
+        container.innerHTML =
+            '<div class="empty">まだ記録がありません</div>';
+        return;
+    }
+
+    const max = Math.max(...entries.map(entry => entry[1]));
+
+    entries.forEach(([subject, seconds]) => {
+        const row = document.createElement("div");
+        row.className = "subject-row";
+
+        const left = document.createElement("div");
+        left.style.flex = "1";
+
+        const top = document.createElement("div");
+        top.style.display = "flex";
+        top.style.justifyContent = "space-between";
+
+        const name = document.createElement("span");
+        name.textContent = subject;
+
+        const time = document.createElement("span");
+        time.textContent = formatTime(seconds);
+
+        const bar = document.createElement("div");
+        bar.className = "subject-bar";
+
+        const fill = document.createElement("div");
+        fill.className = "subject-fill";
+        fill.style.width = `${(seconds / max) * 100}%`;
+
+        bar.appendChild(fill);
+        top.append(name, time);
+        left.append(top, bar);
+        row.appendChild(left);
+        container.appendChild(row);
+    });
+}
+
+/* --------------------------------
+   SHOP
+-------------------------------- */
+
+const shopItems = [
+    {
+        id:"theme-night",
+        name:"ミッドナイト",
+        desc:"落ち着いた定番ダークテーマ",
+        price:0,
+        type:"theme",
+        preview:"🌙",
+        class:""
+    },
+    {
+        id:"theme-ocean",
+        name:"オーシャン",
+        desc:"深い海をイメージした青系テーマ",
+        price:80,
+        type:"theme",
+        preview:"🌊",
+        class:"theme-ocean"
+    },
+    {
+        id:"theme-forest",
+        name:"フォレスト",
+        desc:"集中しやすい森のグリーン",
+        price:100,
+        type:"theme",
+        preview:"🌲",
+        class:"theme-forest"
+    },
+    {
+        id:"theme-sakura",
+        name:"サクラ",
+        desc:"やわらかな夜桜カラー",
+        price:120,
+        type:"theme",
+        preview:"🌸",
+        class:"theme-sakura"
+    },
+    {
+        id:"theme-sunset",
+        name:"サンセット",
+        desc:"夕暮れのあたたかい配色",
+        price:120,
+        type:"theme",
+        preview:"🌇",
+        class:"theme-sunset"
+    },
+    {
+        id:"effect-normal",
+        name:"ノーマル",
+        desc:"標準のタイマー表示",
+        price:0,
+        type:"effect",
+        preview:"⏱️",
+        class:""
+    },
+    {
+        id:"effect-neon",
+        name:"ネオン",
+        desc:"タイマーが光る特別な表示",
+        price:150,
+        type:"effect",
+        preview:"💠",
+        class:"timer-neon"
+    },
+    {
+        id:"effect-gold",
+        name:"ゴールド",
+        desc:"上品な金色のタイマー表示",
+        price:180,
+        type:"effect",
+        preview:"✨",
+        class:"timer-gold"
+    }
+];
+
+function applyShopAppearance() {
+    document.body.classList.remove(
+        "theme-ocean",
+        "theme-forest",
+        "theme-sakura",
+        "theme-sunset",
+        "timer-neon",
+        "timer-gold"
     );
 
-document
-    .getElementById("resetBtn")
-    .addEventListener(
-        "click",
-        resetTimer
-    );
+    const theme = shopItems.find(x => x.id === data.equippedTheme);
+    const effect = shopItems.find(x => x.id === data.equippedEffect);
 
-document
-    .getElementById("addTask")
-    .addEventListener(
-        "click",
-        addTask
-    );
+    if (theme && theme.class) {
+        document.body.classList.add(theme.class);
+    }
 
-document
-    .getElementById("taskInput")
-    .addEventListener(
-        "keydown",
-        e => {
+    if (effect && effect.class) {
+        document.body.classList.add(effect.class);
+    }
+}
 
-            if (e.key === "Enter") {
+function renderShop() {
+    const groups = {
+        theme:document.getElementById("themeShop"),
+        effect:document.getElementById("effectShop")
+    };
 
-                addTask();
+    groups.theme.innerHTML = "";
+    groups.effect.innerHTML = "";
 
+    shopItems.forEach(item => {
+        const owned = data.ownedItems.includes(item.id);
+
+        const equipped = item.type === "theme"
+            ? data.equippedTheme === item.id
+            : data.equippedEffect === item.id;
+
+        const card = document.createElement("div");
+        card.className = "shop-item";
+
+        card.innerHTML = `
+            <div class="shop-preview">${item.preview}</div>
+            <div class="shop-name">${item.name}</div>
+            <div class="shop-desc">${item.desc}</div>
+            <div class="shop-price">
+                ${item.price === 0 ? "無料" : `✦ ${item.price} スタクレ`}
+            </div>
+            <button class="shop-btn" ${
+                !owned && data.credits < item.price ? "disabled" : ""
+            }>
+                ${equipped ? "使用中" : owned ? "装備する" : "購入する"}
+            </button>
+        `;
+
+        const button = card.querySelector("button");
+
+        button.addEventListener("click", () => {
+            if (!owned) {
+                if (data.credits < item.price) return;
+
+                data.credits -= item.price;
+                data.ownedItems.push(item.id);
             }
 
+            if (item.type === "theme") {
+                data.equippedTheme = item.id;
+            } else {
+                data.equippedEffect = item.id;
+            }
+
+            save();
+            applyShopAppearance();
+            renderShop();
+            renderDashboard();
+        });
+
+        groups[item.type].appendChild(card);
+    });
+}
+
+/* --------------------------------
+   NAVIGATION
+-------------------------------- */
+
+document.querySelectorAll(".nav button[data-page]").forEach(button => {
+    button.addEventListener("click", () => {
+        const page = button.dataset.page;
+
+        document.querySelectorAll(".page").forEach(section => {
+            section.classList.remove("active");
+        });
+
+        const target = document.getElementById(`page-${page}`);
+
+        if (target) {
+            target.classList.add("active");
         }
-    );
 
+        document.querySelectorAll(".nav button").forEach(navButton => {
+            navButton.classList.remove("active");
+            navButton.removeAttribute("aria-current");
+        });
 
-/* =========================
+        button.classList.add("active");
+        button.setAttribute("aria-current", "page");
+
+        if (page === "graph") {
+            renderCalendar();
+            renderGraph();
+            renderSubjects();
+        }
+
+        if (page === "shop") {
+            renderShop();
+        }
+
+        window.scrollTo(0, 0);
+    });
+});
+
+/* --------------------------------
    INITIALIZE
-========================= */
+-------------------------------- */
 
-updateTimer();
+applyShopAppearance();
+renderTimer();
+renderDashboard();
+renderTasks();
+renderCalendar();
+renderGraph();
+renderSubjects();
+renderShop();
+save();
 
-render();
-
-</script>
-
-<script>
+/* Service worker */
 if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker.register("./sw.js");
-  });
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./sw.js")
+            .catch(error => console.log("SW registration failed:", error));
+    });
 }
 </script>
 </body>
 </html>
-```
